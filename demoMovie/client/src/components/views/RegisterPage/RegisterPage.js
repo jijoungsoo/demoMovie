@@ -4,6 +4,7 @@ import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { registerUser } from "../../../_actions/user_actions";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import {
   Form,
@@ -34,7 +35,9 @@ const tailFormItemLayout = {
   },
 };
 
-function RegisterPage(props) {
+function RegisterPage() {
+  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   return (
 
@@ -74,7 +77,8 @@ function RegisterPage(props) {
 
           dispatch(registerUser(dataToSubmit)).then(response => {
             if (response.payload.success) {
-              props.history.push("/login");
+              //props.history.push("/login");
+              navigate('/login');   //v6일때               
             } else {
               alert(response.payload.err.errmsg)
             }

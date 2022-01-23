@@ -13,15 +13,21 @@ import Footer from "./views/Footer/Footer"
 //false  logged in user can't go inside
 
 function App() {
+  const NewLandingPage = Auth(LandingPage,null);
+  const NewLoginPage = Auth(LoginPage,false);
+  const NewRegisterPage = Auth(RegisterPage,false);
+
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
       <NavBar />
       <div style={{ paddingTop: '69px', minHeight: 'calc(100vh - 80px)' }}>
-        <Switch>
-          <Route exact path="/" component={Auth(LandingPage, null)} />
-          <Route exact path="/login" component={Auth(LoginPage, false)} />
-          <Route exact path="/register" component={Auth(RegisterPage, false)} />
-        </Switch>
+      <Router>          
+        <Routes>
+          <Route path="/" element={<NewLandingPage />} />
+          <Route path="/login"  element={<NewLoginPage />} />
+          <Route path="/register"  element={<NewRegisterPage />} />
+        </Routes>
+      </Router>        
       </div>
       <Footer />
     </Suspense>
