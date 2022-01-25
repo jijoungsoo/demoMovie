@@ -6,7 +6,7 @@ import { USER_SERVER } from '../../../Config';
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-function RightMenu() {
+function RightMenu(props) {
   const navigate = useNavigate();
 
   const user = useSelector(state => state.user)

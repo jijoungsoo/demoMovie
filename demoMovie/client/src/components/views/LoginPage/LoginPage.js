@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { loginUser } from "../../../_actions/user_actions";
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { Form, Icon, Input, Button, Checkbox, Typography } from 'antd';
+import { Form,  Input, Button, Checkbox, Typography } from 'antd';
+import Icon from '@ant-design/icons';
+
 import { useDispatch } from "react-redux";
 
 import { useNavigate } from "react-router-dom";

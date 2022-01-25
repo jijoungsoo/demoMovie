@@ -5,9 +5,10 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 export default function (SpecificComponent, option, adminRoute = null) {
-    function AuthenticationCheck() {
+    function AuthenticationCheck(props) {
 
         let user = useSelector(state => state.user);
+        const navigate = useNavigate();
         const dispatch = useDispatch();
 
         useEffect(() => {
