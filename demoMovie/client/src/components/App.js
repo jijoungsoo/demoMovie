@@ -12,6 +12,7 @@ import RegisterPage from "./views/RegisterPage/RegisterPage.js";
 import NavBar from "./views/NavBar/NavBar";
 import Footer from "./views/Footer/Footer"
 import MovieDetail from "./views/MovieDetail/MovieDetail"
+import FavoritePage from "./views/FavortitePage/FavoritePage"
 
 //null   Anyone Can go inside
 //true   only logged in user can go inside
@@ -22,6 +23,8 @@ function App() {
     const NewLoginPage = Auth(LoginPage,false);
     const NewRegisterPage = Auth(RegisterPage,false);
     const NewMovieDetail = Auth(MovieDetail,null);
+    const NewFavoritePage = Auth(FavoritePage,true)
+    
   return (
     <Suspense fallback={(<div>Loading...</div>)}>
     <NavBar />
@@ -31,6 +34,8 @@ function App() {
         <Route path="/login"  element={<NewLoginPage />} />
         <Route path="/register"  element={<NewRegisterPage />} />
         <Route path="/movie/:movieId"  element={<NewMovieDetail />} />
+        <Route path="/favorite"  element={<NewFavoritePage />} />
+        
      </Routes>    
      </div>
     <Footer />
